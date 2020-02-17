@@ -1,12 +1,20 @@
 # Font Awesome Icon Codename Selector
 
 [![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-kontent)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f5dbe9fe-7d20-4b0f-94fd-5fb129a7d5d4/deploy-status)](https://app.netlify.com/sites/kontent-custom-element-font-awesome-selector-codename/deploys)
+
 
 ## A custom element for Kentico Kontent
 
 This is a [custom element](https://docs.kontent.ai/tutorials/develop-apps/integrate/integrating-your-own-content-editing-features) for [Kentico Kontent](https://kontent.ai) that allows you to pick [Font Awesome Icon](https://fontawesome.com/icons).
 
+![Font Awesome Icon Codename Selector](showcase.gif)
+
 The custom element is storing the **code of the picked icon**. Internally it is a wrapper over the [fontawesome-iconpicker](https://github.com/itsjavi/fontawesome-iconpicker) selector.
+
+:bulb:
+
+If you want to take a look to another approach that stores *icon SVG*, take a look to the sibling repository [kontent-custom-element-font-awesome-selector-svg](https://github.com/Simply007/kontent-custom-element-font-awesome-selector-svg).
 
 ## Stored value
 

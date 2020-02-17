@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Font Awesome Selector</title>
+  <meta name="author" content="Jeroen Fürst">
+
+  <!-- Kentico Custom element CSS-->
+  <link rel="stylesheet" type="text/css" href="./custom-element.min.css">
+  <link rel="stylesheet" type="text/css" href="./fontawesome-iconpicker.min.css">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
+
+  <!-- Kentico Custom elements API-->
+  <script src="https://app.kontent.ai/js-api/custom-element.js"></script>
+  <script src="//code.jquery.com/jquery-2.2.1.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="./fontawesome-iconpicker.min.js"></script>
+
+  <!-- jquery -->
+
+
+  <!-- Custom elements styles -->
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .disabled_overlay {
+      position: fixed;
+      z-index: 10;
+      cursor: not-allowed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+    }
+
+    .iconpicker-popover.popover {
+      width: 100%;
+      margin: 0;
+      border-radius: 0;
+    }
+
+    .iconpicker-container input{
+      border-radius: 0;
+    }
+
+    .input-group-addon {
+      cursor: default;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Custom element HTML -->
+  <div class="disabled_overlay"></div>
+  <div>
+    <div class="text-field">
+      <div class="input-group">
+        <input data-placement="inline" class="form-control icp icp-auto" type="text" disabled="true"/>
+        <span class="input-group-addon" disabled="true"></span>
+      </div>
+    </div>
+  </div>
+  <!-- Custom element code -->
+  <script>
+    var isDisabled = false;
+
+    function updateDisabled(disabled) {
+      isDisabled = disabled;
+      if (disabled) {
+        $('.disabled_overlay').show();
+      }
+      else {
+        $('.disabled_overlay').hide();
+      }
+    }
+
+    function setup(value) {
+      $('.icp').iconpicker({
+        defaultValue: value,
+        collision: 'none'
+      });
+      $('.icp').on('iconpickerSelected', function (e) {
+        CustomElement.setValue(e.iconpickerValue);
+      });
+      $(".input-group-addon").off("click");
+    }
+
+    function updateSize() {
+      // Update the custom element height in the Kentico UI
+      const height = Math.ceil($("html").height());
+      CustomElement.setHeight(height);
+    }
+
+    function initCustomElement() {
+      try {
+        CustomElement.init((element, _context) => {
+
+          // Setup with initial value and disabled state
+          setup(element.value);
+          updateDisabled(element.disabled);
+          updateSize();
+        });
+
+        // React on disabled changed (e.g. when publishing the item)
+        CustomElement.onDisabledChanged(updateDisabled);
+      } catch (err) {
+        // Initialization with Kentico Custom element API failed
+        // (page displayed outside of the Kentico UI)
+        console.error(err);
+        updateDisabled(true);
+      }
+    }
+
+    initCustomElement();
+  </script>
+</body>
+
+</html>

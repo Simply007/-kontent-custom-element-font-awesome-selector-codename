@@ -12,9 +12,7 @@ This is a [custom element](https://docs.kontent.ai/tutorials/develop-apps/integr
 
 The custom element is storing the **code of the picked icon**. Internally it is a wrapper over the [fontawesome-iconpicker](https://github.com/itsjavi/fontawesome-iconpicker) selector.
 
-:bulb:
-
-If you want to take a look to another approach that stores *icon SVG*, take a look to the sibling repository [kontent-custom-element-font-awesome-selector-svg](https://github.com/Simply007/kontent-custom-element-font-awesome-selector-svg).
+:bulb: If you want to take a look to another approach that stores *icon SVG*, take a look to the sibling repository [kontent-custom-element-font-awesome-selector-svg](https://github.com/Simply007/kontent-custom-element-font-awesome-selector-svg).
 
 ## Stored value
 

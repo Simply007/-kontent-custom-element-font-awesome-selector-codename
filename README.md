@@ -1,4 +1,4 @@
-# Font Awesome Icons
+# Font Awesome Icon Codename Selector
 
 [![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-kontent)
 
@@ -6,7 +6,7 @@
 
 This is a [custom element](https://docs.kontent.ai/tutorials/develop-apps/integrate/integrating-your-own-content-editing-features) for [Kentico Kontent](https://kontent.ai) that allows you to pick [Font Awesome Icon](https://fontawesome.com/icons).
 
-The custom element is storing the code of the picked icon. Internally it is a wrapper over the [fontawesome-iconpicker](https://github.com/itsjavi/fontawesome-iconpicker) selector.
+The custom element is storing the **code of the picked icon**. Internally it is a wrapper over the [fontawesome-iconpicker](https://github.com/itsjavi/fontawesome-iconpicker) selector.
 
 ## Stored value
 
